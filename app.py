@@ -29,7 +29,7 @@ else:
 
 if video_path:
     with st.spinner("Analyzing video..."):
-        res = explain_video(video_path, fps=fps, use_llm=use_llm, tts_lang=tts_lang)
+        res = explain_video(video_path, fps=fps, use_llm=False, tts_lang=tts_lang)
     st.success(f"Analysis done — {res['frames_count']} frames processed")
     st.subheader("Detected Events")
     for i,ev in enumerate(res['events']):
