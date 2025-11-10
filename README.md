@@ -1,44 +1,27 @@
+
 # VisionExplainr
-AI that explains what’s happening inside a video in plain English — step-by-step.
 
-🎯 Goal
+VisionExplainr is a starter project that explains what is happening in short videos using
+MediaPipe (pose + hands) and simple heuristics. It produces a timeline of events and human-friendly
+explanations, and can optionally use OpenAI to polish text and gTTS for audio narration.
 
-Computer Vision + LLM = Scene-by-scene description generator.
+## Quick start
+1. Create & activate venv:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Windows: venv\Scripts\activate
+   ```
+2. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Add a short test video at `example_inputs/sample_video.mp4` (<= 30s recommended).
+4. Run app:
+   ```bash
+   streamlit run app.py
+   ```
+5. (Optional) To enable OpenAI polishing, set `OPENAI_API_KEY` in your environment.
 
-💡 Use Case
-
-Video analytics, sports, CCTV interpretation, or accessibility for the visually impaired.
-
-🧩 Architecture
-
-Frame Extraction (1 frame/sec)
-
-Action Recognition (e.g., YOLO + DeepSORT)
-
-Event Detection (goal, jump, run, fight, etc.)
-
-LLM Commentary Generation
-
-Audio Narration (TTS).
-
-⚙️ Tech Stack
-
-OpenCV, YOLOv8, MediaPipe (action detection)
-
-OpenAI GPT / Llama-3 (caption + commentary)
-
-gTTS / Coqui (voice output)
-
-Flask / Streamlit
-
-🚀 Steps
-
-Extract video frames.
-
-Detect human poses/actions.
-
-Convert detections into structured event list.
-
-Generate description: “Person A runs towards B and throws ball.”
-
-Convert to audio + overlay on video.
+## Notes
+- gTTS requires internet to synthesize audio.
+- MediaPipe works better with clear, well-lit videos.
